@@ -14,12 +14,18 @@ app.use('/public', express.static('public'));
 app.set("view engine", "ejs")
 
 app.use(cors({
-  origin : 'https://geo-gusser-frontend.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
-  credentials: true 
-}))
-
-
+    origin: 'https://geo-gusser-frontend.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  }));
+  
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://geo-gusser-frontend.vercel.app");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    next();
+  });
+  
 
 app.get("/form", function(req, res){
     res.render("form")
