@@ -16,8 +16,7 @@ app.set("view engine", "ejs")
 
 app.use(cors({
     origin: [
-        'http://45.154.98.112',        // Example: http://192.168.1.100
-        'http://45.154.98.112:5173'    // Example for development (Vite default port)
+        'http://45.154.98.112'   // Example for development (Vite default port)
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
@@ -25,8 +24,7 @@ app.use(cors({
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", [
-        'http://45.154.98.112',        // Example: http://192.168.1.100
-        'http://45.154.98.112:5173'    // Example for development (Vite default port)
+        'http://45.154.98.112'    // Example for development (Vite default port)
     ]);
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
