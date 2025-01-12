@@ -8,33 +8,39 @@ const app = express();
 
 app.use(express.json())
 app.use(express.urlencoded({
-    extended : true
+    extended: true
 }))
-app.use('/public', express.static('/tmp'));
+app.use('/public', express.static('public'));
 
 app.set("view engine", "ejs")
 
 app.use(cors({
-    origin: 'https://geo-gusser-frontend.vercel.app',
+    origin: [
+        'http://45.154.98.112',        // Example: http://192.168.1.100
+        'http://45.154.98.112:5173'    // Example for development (Vite default port)
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
-  }));
-  
+}));
+
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://geo-gusser-frontend.vercel.app");
+    res.header("Access-Control-Allow-Origin", [
+        'http://45.154.98.112',        // Example: http://192.168.1.100
+        'http://45.154.98.112:5173'    // Example for development (Vite default port)
+    ]);
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
     next();
-  });
-  
+});
 
-app.get("/form", function(req, res){
+
+app.get("/form", function (req, res) {
     res.render("form")
 })
-app.get("/",function(req,res){
+app.get("/", function (req, res) {
     res.send("run ")
 })
-app.get("/view", function(req, res){
+app.get("/view", function (req, res) {
     res.render("view")
 })
 
