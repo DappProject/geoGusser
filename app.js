@@ -37,7 +37,7 @@ app.get("/view", function(req, res){
     res.render("view")
 })
 
-import searchRouter from './routes/search.routes.js'
+import searchRouter from './src/routes/search.routes.js'
 
 app.use("/api/v1/geoGuess", searchRouter)
 
