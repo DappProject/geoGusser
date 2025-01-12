@@ -14,7 +14,7 @@ app.use('/public', express.static('public'));
 app.set("view engine", "ejs")
 
 app.use(cors({
-  origin : process.env.CORS_ORIGIN,
+  origin : 'https://geo-gusser-frontend.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
   credentials: true 
 }))
