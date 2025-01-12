@@ -1,3 +1,4 @@
+import searchRouter from './src/routes/search.routes.js'
 import express from "express";
 import cors from "cors"
 
@@ -37,7 +38,6 @@ app.get("/view", function(req, res){
     res.render("view")
 })
 
-import searchRouter from './src/routes/search.routes.js'
 
 app.use("/api/v1/geoGuess", searchRouter)
 
