@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({
     extended : true
 }))
-app.use('/public', express.static('public'));
+app.use('/public', express.static('/tmp'));
 
 app.set("view engine", "ejs")
 
