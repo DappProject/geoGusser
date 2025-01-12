@@ -24,6 +24,9 @@ app.use(cors({
 app.get("/form", function(req, res){
     res.render("form")
 })
+app.get("/",function(req,res){
+    res.send("run ")
+})
 app.get("/view", function(req, res){
     res.render("view")
 })
